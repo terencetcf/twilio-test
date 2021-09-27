@@ -1,0 +1,22 @@
+{
+  "name": "twilio-test",
+  "version": "1.0.0",
+  "description": "twillio api test with node",
+  "main": "index.ts",
+  "repository": "git@github.com:terencetcf/twilio-test.git",
+  "author": "Terence Tai <terencetai@pulsifi.me>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node-dev -r tsconfig-paths/register --files src/index.ts"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "twilio": "^3.68.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.1",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.3"
+  }
+}

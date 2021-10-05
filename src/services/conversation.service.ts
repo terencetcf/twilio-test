@@ -1,12 +1,12 @@
-import { twilioService } from "@services";
+import { twilioService } from '@services';
 import {
   ConversationInstance,
   ConversationListInstanceCreateOptions,
-} from "twilio/lib/rest/conversations/v1/conversation";
+} from 'twilio/lib/rest/conversations/v1/conversation';
 import {
   ParticipantInstance,
   ParticipantListInstanceCreateOptions,
-} from "twilio/lib/rest/conversations/v1/conversation/participant";
+} from 'twilio/lib/rest/conversations/v1/conversation/participant';
 
 const createConversation = async (
   opts: ConversationListInstanceCreateOptions
@@ -33,6 +33,17 @@ const getConversation = async (
   return conversation;
 };
 
+const removeConversation = async (
+  conversationSid: string
+): Promise<boolean> => {
+  const client = twilioService.getClient();
+  const result = await client.conversations
+    .conversations(conversationSid)
+    .remove();
+
+  return result;
+};
+
 const addParticipant = async (
   conversationSid: string,
   opts: ParticipantListInstanceCreateOptions
@@ -49,5 +60,6 @@ export const conversationService = {
   createConversation,
   getConversations,
   getConversation,
+  removeConversation,
   addParticipant,
 };
